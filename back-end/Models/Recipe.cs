@@ -8,18 +8,17 @@ namespace RecipeManager.Models
         public int RecipeId { get; set; }
 
         [JsonPropertyName("name")]
-        public string Name { get; set; }
+        public required string Name { get; set; }
 
         [JsonPropertyName("description")]
-        public string Description { get; set; }
+        public required string Description { get; set; }
 
         [JsonPropertyName("category")]
-        public string Category { get; set; }
+        public required string Category { get; set; }
 
         [JsonPropertyName("favorite")]
         public bool Favorite { get; set; }
 
-        public static readonly string[] ValidCategories = new string[]
-        { "Breakfast", "Brunch", "Lunch", "Dinner", "Supper", "Other" };
+        public static readonly string[] ValidCategories = ["Breakfast", "Brunch", "Lunch", "Dinner", "Supper", "Other"];
     }
 }
