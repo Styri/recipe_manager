@@ -1,6 +1,6 @@
 # Recipe Manager
 
-This is a a revamped version of my previous web-based recipe manager application with a new back-end(now C#/ASP.NET CORE), design and Javascript code. 
+This is a a revamped version of my previous web-based recipe manager application with a new back-end(now C#/ASP.NET Core), design and Javascript code. 
 
 ## Application Features
 
