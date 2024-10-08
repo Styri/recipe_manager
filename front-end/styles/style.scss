@@ -1,0 +1,322 @@
+// Import fonts
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Lobster+Two:ital,wght@1,700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+// Variables
+$color-primary: #4CAF50;
+$color-secondary: #FFA000;
+$color-background: rgba(255, 255, 255, 0.9);
+$color-text: #333;
+$color-border: #E0E0E0;
+$transition-time: 0.3s;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin button-styles($bg-color, $hover-color) {
+  background-color: $bg-color;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all $transition-time ease;
+
+  &:hover {
+    background-color: $hover-color;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+}
+
+// Global Styles
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: url("../assets/images/foodIngredients.avif") no-repeat center center fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 20px;
+  color: $color-text;
+}
+
+.container {
+  background-color: $color-background;
+  border-radius: 15px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+h1 {
+  font-family: 'Lobster Two', cursive;
+  color: $color-secondary;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 30px;
+}
+
+// Input Styles
+.recipe-input {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 15px;
+  margin-bottom: 30px;
+
+  input, select {
+    padding: 12px;
+    border: 1px solid $color-border;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: all $transition-time ease;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+    }
+  }
+
+  button {
+    @include button-styles($color-primary, darken($color-primary, 10%));
+  }
+}
+
+// Search and Filter Styles
+.search-section {
+  margin-bottom: 20px;
+
+  input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid $color-border;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: all $transition-time ease;
+
+    &:focus {
+      outline: none;
+      border-color: $color-primary;
+      box-shadow: 0 0 0 2px rgba($color-primary, 0.2);
+    }
+  }
+}
+
+.recipe-filter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  button {
+    @include button-styles($color-secondary, darken($color-secondary, 10%));
+    flex: 1;
+  }
+}
+
+// Recipe List Styles
+.recipe-list {
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+
+  li {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: all $transition-time ease;
+
+    &:hover {
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    span {
+      flex-grow: 1;
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      @include flex-center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: none;
+      background-color: $color-primary;
+      color: white;
+      cursor: pointer;
+      transition: all $transition-time ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &.favorite-button {
+        &.favorited {
+          background-color: $color-secondary;
+        }
+      }
+
+      &.delete-button {
+        background-color: #F44336;
+      }
+    }
+  }
+}
+
+// Pagination Styles
+.pagination {
+  @include flex-center;
+  margin-top: 20px;
+  gap: 10px;
+
+  button {
+    @include button-styles($color-secondary, darken($color-secondary, 10%));
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      &:hover {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+// Modal Styles
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  @include flex-center;
+
+  .modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid $color-border;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+    animation: modalFadeIn 0.3s;
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #aaa;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: color 0.3s ease;
+
+      &:hover,
+      &:focus {
+        color: #000;
+        text-decoration: none;
+      }
+    }
+
+    h2 {
+      color: $color-primary;
+      margin-top: 0;
+    }
+
+    textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid $color-border;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      resize: vertical;
+    }
+
+    button {
+      @include button-styles($color-primary, darken($color-primary, 10%));
+      width: 100%;
+    }
+  }
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Alert Styles
+.alert {
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  font-weight: bold;
+
+  &.error {
+    background-color: #FFEBEE;
+    color: #B71C1C;
+  }
+
+  &.success {
+    background-color: #E8F5E9;
+    color: #1B5E20;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .recipe-input {
+    grid-template-columns: 1fr;
+  }
+
+  .recipe-filter {
+    flex-direction: column;
+  }
+
+  .modal .modal-content {
+    width: 95%;
+  }
+}
+
+// Error Message Styles
+.error-message {
+  color: #B71C1C;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+// Recipe Report Styles
+#recipeReport {
+  background-color: #E8F5E9;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+  
+  p {
+    margin: 5px 0;
+  }
+}

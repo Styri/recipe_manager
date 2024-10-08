@@ -1,0 +1,38 @@
+# .NET Core
+bin/
+obj/
+*.user
+
+# Visual Studio / VS Code
+.vs/
+.vscode/
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Database
+*.db
+*.sqlite
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Compiled CSS
+*.css.map
+
+# Environment variables
+.env

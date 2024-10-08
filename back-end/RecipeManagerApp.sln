@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RecipeManagerApp", "RecipeManagerApp.csproj", "{058A4F7E-F77B-4133-A8BD-103D55BFE54B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{058A4F7E-F77B-4133-A8BD-103D55BFE54B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{058A4F7E-F77B-4133-A8BD-103D55BFE54B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{058A4F7E-F77B-4133-A8BD-103D55BFE54B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{058A4F7E-F77B-4133-A8BD-103D55BFE54B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F446D80D-ECD2-4076-BB91-DEC2E1BE53B0}
+	EndGlobalSection
+EndGlobal

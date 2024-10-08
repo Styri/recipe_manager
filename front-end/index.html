@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Manager</title>
+    <link rel="stylesheet" href="styles/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Lobster+Two:ital,wght@1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container">
+      <h1>Recipe Manager</h1>
+      
+      <div class="recipe-input">
+        <input id="rcpName" type="text" placeholder="Recipe Name" />
+        <input id="rcpDescription" type="text" placeholder="Description" />
+        <select id="rcpCategory">
+          <option value="Breakfast">Breakfast</option>
+          <option value="Brunch">Brunch</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Dinner">Dinner</option>
+          <option value="Supper">Supper</option>
+          <option value="Other">Other</option>
+        </select>
+        <button id="addRecipeButton">
+          <span class="material-icons">add</span>
+        </button>
+      </div>
+      <div id="name-descriptionErrorMessage" class="error-message">Name and description are required</div>
+      
+      <div class="search-section">
+        <input
+          id="searchInput"
+          type="search"
+          placeholder="Search recipes by name, description or category"
+        />
+      </div>
+      
+      <div class="recipe-filter">
+        <button id="showAll">All Recipes</button>
+        <button id="showFavorites">Favorites</button>
+        <button id="sortByCategory">Sort by Category</button>
+        <button id="recipeReporter">Generate Report</button>
+      </div>
+      
+      <div id="alertDiv" class="alert"></div>
+      
+      <div id="recipeReport" class="recipe-report" style="display: none;"></div>
+      
+      <div class="recipe-list">
+        <ul id="recipeList"></ul>
+      </div>
+      
+      <div class="pagination">
+        <button id="previousPage" class="pagination-button">
+          <span class="material-icons">navigate_before</span>
+        </button>
+        <span id="pageNumber">Page 1</span>
+        <button id="nextPage" class="pagination-button">
+          <span class="material-icons">navigate_next</span>
+        </button>
+      </div>
+    </div>
+
+    <div id="updateDescriptionModal" class="modal" style="display: none;">
+      <div class="modal-content">
+        <span id="close" class="close-button">
+          <span class="material-icons">close</span>
+        </span>
+        <h2>Update Recipe Description</h2>
+        <textarea
+          id="newDescription"
+          placeholder="Enter new recipe description"
+        ></textarea>
+        <div id="errorMessage" class="error-message">Description cannot be empty</div>
+        <button id="updateButton">Update</button>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+    <script src="scripts/app.js"></script>
+  </body>
+</html>
