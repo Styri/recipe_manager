@@ -28,7 +28,9 @@ This is a a revamped version of my previous web-based recipe manager application
 ## Prerequisites
 
 - **.NET SDK 8.0.8**
-- **Download it here:** https://dotnet.microsoft.com/en-us/download
+- **Download it here(Windows):** https://dotnet.microsoft.com/en-us/download
+- If you're using Linux visit this link for instructions: https://learn.microsoft.com/en-us/dotnet/core/install/linux?WT.mc_id=dotnet-35129-website
+- If you're using Mac : https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 - **Any modern browser**
 
 ## Running the Application Locally
@@ -50,6 +52,11 @@ This is a a revamped version of my previous web-based recipe manager application
     dotnet run
 ```
 5. To stop the application, press Ctrl+C in the terminal where the application is running.
+   
+## Next Steps
+
+- API documentation (Swagger)
+- Authentication
 
 ## Contributing
 
