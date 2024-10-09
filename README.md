@@ -50,6 +50,11 @@ This is a a revamped version of my previous web-based recipe manager application
     dotnet run
 ```
 5. To stop the application, press Ctrl+C in the terminal where the application is running.
+   
+## Next Steps
+
+- Swagger API documentation
+- Authentication
 
 ## Contributing
 
