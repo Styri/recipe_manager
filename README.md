@@ -29,7 +29,7 @@ This is a a revamped version of my previous web-based recipe manager application
 
 - **.NET SDK 8.0.8**
 - **Download it here(Windows):** https://dotnet.microsoft.com/en-us/download
-- If you're using Linux visit this link for instructions: https://learn.microsoft.com/el-gr/dotnet/core/install/linux?WT.mc_id=dotnet-35129-website
+- If you're using Linux visit this link for instructions: https://learn.microsoft.com/en-us/dotnet/core/install/linux?WT.mc_id=dotnet-35129-website
 - If you're using Mac : https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 - **Any modern browser**
 
