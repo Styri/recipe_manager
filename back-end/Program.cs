@@ -40,7 +40,7 @@ using (var scope = app.Services.CreateScope())
         CREATE TABLE IF NOT EXISTS recipes (
             recipe_id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL CHECK(length(name) <= 250),
-            description TEXT CHECK(length(description) <= 500),
+            description TEXT NOT NULL CHECK(length(description) <= 500),
             category TEXT DEFAULT 'Other' CHECK(category IN ('Breakfast', 'Brunch', 'Lunch', 'Dinner', 'Supper', 'Other')),
             favorite INTEGER DEFAULT 0 CHECK(favorite IN (0, 1))
         );
