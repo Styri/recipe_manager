@@ -53,7 +53,7 @@ This is a a revamped version of my previous web-based recipe manager application
    
 ## Next Steps
 
-- Swagger API documentation
+- API documentation
 - Authentication
 
 ## Contributing
