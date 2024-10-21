@@ -2,7 +2,10 @@ using Dapper;
 using Microsoft.Data.Sqlite;
 using System.Data;
 using Microsoft.Extensions.FileProviders;
-using System.Diagnostics; 
+using System.Diagnostics;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +19,21 @@ builder.Services.AddCors(options =>
                .AllowAnyHeader();
     });
 });
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!))
+        };
+    });
 
 builder.WebHost.UseUrls("http://localhost:3000"); 
 
@@ -45,6 +63,12 @@ using (var scope = app.Services.CreateScope())
             favorite INTEGER DEFAULT 0 CHECK(favorite IN (0, 1))
         );
     ");
+    dbConnection.Execute(@"CREATE TABLE IF NOT EXISTS users (
+    user_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    passwordhash TEXT NOT NULL
+        );
+    ");
 }
 
 // Middleware
@@ -58,6 +82,8 @@ app.UseStaticFiles(new StaticFileOptions
     RequestPath = ""
 });
 
+app.UseAuthentication();
+app.UseAuthorization();
 app.MapControllers();
 
 app.MapFallbackToFile("index.html");
